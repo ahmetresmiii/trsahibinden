@@ -3,158 +3,280 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>İlan Takip ve Karar Destek Aracı</title>
+<title>Ahmet Mesrur Premium İlan Analitik Paneli</title>
 <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
 <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 body {
 font-family: 'Plus Jakarta Sans', sans-serif;
+background-color: #0b0f19;
+background-image:
+radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0, transparent 50%),
+radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.15) 0, transparent 50%),
+radial-gradient(at 50% 50%, rgba(168, 85, 247, 0.05) 0, transparent 50%);
+}
+.glass-panel {
+background: rgba(17, 24, 39, 0.7);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px fill rgba(255, 255, 255, 0.08);
+}
+.neon-border-purple {
+box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+border: 1px solid rgba(168, 85, 247, 0.4);
+}
+.neon-border-amber {
+box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+border: 1px solid rgba(245, 158, 11, 0.4);
+}
+.text-gradient-primary {
+background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #ec4899 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+/* Özel Kaydırma Çubuğu */
+::-webkit-scrollbar {
+width: 8px;
+}
+::-webkit-scrollbar-track {
+background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+background: #334155;
+border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: #475569;
 }
 </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen">
-<div class="flex flex-col md:flex-row min-h-screen">
-<aside class="w-full md:w-64 bg-slate-900 text-white flex flex-col justify-between shrink-0">
-<div>
-<div class="p-6 border-b border-slate-800">
+<body class="text-slate-100 min-h-screen antialiased pb-10">
+<header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 px-6 py-4">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
 <div class="flex items-center gap-3">
-<div class="p-2 bg-amber-500 rounded-lg text-slate-900 font-bold">
-<i class="fa-solid fa-graduation-cap"></i>
+<div class="p-2.5 bg-gradient-to-tr from-cyan-500 via-purple-500 to-pink-500 rounded-xl shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+<i class="fa-solid fa-graduation-cap text-white text-xl"></i>
 </div>
 <div>
-<h1 class="font-bold text-sm tracking-wide">AHMET MESRUR</h1>
-<p class="text-xs text-slate-400">Türkçe Özel Ders Analitik</p>
+<h1 class="text-lg font-extrabold tracking-tight">Ahmet Mesrur <span class="bg-gradient-to-r from-cyan-400 to-purple-400 text-transparent bg-clip-text">Premium İlan Analitik</span></h1>
+<p class="text-xs text-slate-400 font-medium">Sahibinden & Superprof Akıllı Karar Destek Sistemi</p>
 </div>
 </div>
+<div class="flex items-center gap-3">
+<span class="bg-slate-900 border border-slate-800 text-slate-300 text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+<i class="fa-regular fa-clock text-cyan-400"></i> Güncelleme: 26 Mayıs 2026
+</span>
 </div>
-<nav class="p-4 space-y-1">
-<button onclick="switchTab('dashboard')" id="btn-dashboard" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors bg-amber-500 text-slate-950">
-<i class="fa-solid fa-chart-line text-lg"></i>
-Metrik Takip & Öneriler
-</button>
-<button onclick="switchTab('copy-text')" id="btn-copy-text" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:bg-slate-800 hover:text-white">
-<i class="fa-solid fa-copy text-lg"></i>
-İlan Kopyala-Yapıştır
-</button>
-<button onclick="switchTab('images')" id="btn-images" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:bg-slate-800 hover:text-white">
-<i class="fa-solid fa-images text-lg"></i>
-Görsel Sıralama Rehberi
-</button>
-<button onclick="switchTab('doping-guide')" id="btn-doping-guide" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:bg-slate-800 hover:text-white">
-<i class="fa-solid fa-bolt text-lg"></i>
-Doping Karar Matrisi
-</button>
-</nav>
 </div>
-<div class="p-4 border-t border-slate-800 text-xs text-slate-500 space-y-1">
-<p><i class="fa-regular fa-calendar-check mr-1"></i> İlan Tarihi: 26 Mayıs 2026</p>
-<p>© 2026 Karar Destek Sistemi</p>
+</header>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-4 space-y-8">
+<div class="bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200 text-slate-900 transition-all hover:scale-[1.01]">
+<div class="bg-gradient-to-r from-rose-500 to-red-500 p-4 text-white flex items-center justify-between font-bold text-xs tracking-wide">
+<span><i class="fa-solid fa-award mr-1"></i> SÜPERPROF ONAYLI PROFİL</span>
+<span class="bg-white/20 px-2 py-0.5 rounded-full">Aktif Sınıf</span>
 </div>
-</aside>
-<main class="flex-1 p-6 md:p-10 overflow-y-auto max-w-5xl mx-auto w-full">
-<div id="tab-dashboard" class="space-y-6">
-<div class="bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl p-6 text-slate-950 shadow-md relative overflow-hidden">
-<div class="relative z-10 space-y-2">
-<span class="bg-slate-950 text-amber-400 text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Canlı Algoritma</span>
-<h2 class="text-2xl font-black md:text-3xl">Görüntülenme ve Mesaj Analizörü</h2>
-<p class="text-sm md:text-base opacity-90 max-w-xl">Sahibinden ilanındaki günlük verilerini aşağıdaki forma gir. Sistem verilerini analiz edip bütçeni koruyarak en hızlı öğrenciyi nasıl bulacağını söylesin!</p>
+<div class="p-6 text-center space-y-4">
+<div class="relative w-28 h-28 mx-auto">
+<svg class="w-full h-full rounded-full border-4 border-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.4)] bg-slate-900" viewBox="0 0 100 100">
+<defs>
+<linearGradient id="globeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#06b6d4" />
+<stop offset="100%" stop-color="#10b981" />
+</linearGradient>
+<linearGradient id="avatarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#4f46e5" />
+<stop offset="100%" stop-color="#db2777" />
+</linearGradient>
+</defs>
+<circle cx="50" cy="50" r="50" fill="url(#avatarBg)" />
+<circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" class="animate-pulse" />
+<path d="M 43,73 L 57,73 L 55,60 L 45,60 Z" fill="#fed7aa" />
+<path d="M 22,95 C 22,81 35,74 50,74 C 65,74 78,81 78,95 Z" fill="#0f172a" />
+<path d="M 45,74 L 55,74 L 50,83 Z" fill="#ffffff" />
+<circle cx="50" cy="45" r="17" fill="#fed7aa" />
+<path d="M 33,38 C 33,24 45,19 57,21 C 66,23 67,31 67,37 C 67,39 59,31 50,31 C 41,31 33,37 33,38 Z" fill="#1e293b" />
+<path d="M 33,38 C 31,43 33,48 35,48 C 36,44 36,41 33,38 Z" fill="#1e293b" />
+<rect x="37" y="39" width="10" height="8" rx="2" fill="none" stroke="#0f172a" stroke-width="2" />
+<rect x="53" y="39" width="10" height="8" rx="2" fill="none" stroke="#0f172a" stroke-width="2" />
+<line x1="47" y1="43" x2="53" y2="43" stroke="#0f172a" stroke-width="2" />
+<circle cx="42" cy="43" r="1.5" fill="#0f172a" />
+<circle cx="58" cy="43" r="1.5" fill="#0f172a" />
+<path d="M 46,50 Q 50,54 54,50" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" />
+<circle cx="50" cy="85" r="13" fill="url(#globeGrad)" stroke="#ffffff" stroke-width="1.5" />
+<path d="M 43,81 Q 46,78 48,82 Q 51,86 46,91 M 53,82 Q 56,80 58,84 Q 59,88 56,91" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.8" />
+<text x="50" y="87" font-size="4.5" font-weight="extrabold" fill="#ffffff" text-anchor="middle" font-family="sans-serif">Türkçe</text>
+</svg>
+<span class="absolute bottom-1 right-1 bg-emerald-500 border-2 border-white text-white rounded-full p-1 w-6 h-6 flex items-center justify-center text-[10px]" title="Onaylı Hesap">
+<i class="fa-solid fa-check"></i>
+</span>
 </div>
-<i class="fa-solid fa-chart-bar text-9xl absolute -right-4 -bottom-4 opacity-10 pointer-events-none"></i>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-<div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
-<h3 class="font-bold text-lg text-slate-900 flex items-center gap-2">
-<i class="fa-solid fa-plus-circle text-amber-500"></i> Bugünün Verisini Gir
+<div>
+<h3 class="text-xl font-bold text-slate-900 flex items-center justify-center gap-1.5">
+Ahmet Mesrur <i class="fa-solid fa-circle-check text-blue-500 text-sm"></i>
 </h3>
-<form id="metrics-form" onsubmit="saveEntry(event)" class="space-y-4">
+<p class="text-xs font-semibold text-rose-500 uppercase tracking-wide">Gazi Üniversitesi Mezun Adayı</p>
+</div>
+<div class="bg-slate-50 rounded-xl p-3 border border-slate-100 text-left text-xs space-y-1">
+<p class="font-bold text-slate-700"><i class="fa-solid fa-graduation-cap text-purple-500 mr-1"></i> Ortaokul Türkçe'de Tam Başarı</p>
+<p class="text-slate-500">Teknoloji ve Etkin Katılımlı Öğrenme Modeli. Öğrencinin Başarısı en önemli kriter.</p>
+</div>
+<div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-4 text-left relative">
+<span class="absolute -top-2.5 left-4 bg-indigo-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
+Önerilen Eğitmen
+</span>
+<p class="text-[11px] text-indigo-950 font-medium leading-relaxed italic">
+"Ahmet Mesrur, öğrencileri tarafından sevilen bir öğretmendir. Kendisi ciddiyeti, öğretme biçimi ve derslerinin kalitesi sayesinde önerilmiştir. Güvenle ilerlemek için doğru bir seçim."
+</p>
+<div class="flex items-center gap-1 mt-2.5 text-amber-500 text-xs">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<span class="text-slate-500 ml-1 font-bold text-[10px]">(5.0/5)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-3xl p-6 border border-slate-800 space-y-4 shadow-xl">
+<h3 class="font-bold text-md text-amber-400 flex items-center gap-2">
+<i class="fa-solid fa-phone-volume animate-bounce"></i> Veli Telefon Görüşme Rehberi
+</h3>
+<p class="text-xs text-slate-400">Telefonun çaldığında veliyi anında derse bağlayacak hazır argümanların:</p>
+<div class="space-y-3">
+<button onclick="toggleFaq(1)" class="w-full text-left bg-slate-900/50 hover:bg-slate-900 border border-slate-800 p-3 rounded-xl transition-all flex items-center justify-between text-xs">
+<span class="font-semibold text-slate-200">"Online ders verimli olur mu?"</span>
+<i id="faq-icon-1" class="fa-solid fa-chevron-down text-slate-400"></i>
+</button>
+<div id="faq-ans-1" class="hidden bg-slate-950/80 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 leading-relaxed">
+"Kullandığım profesyonel grafik tablet, interaktif slaytlar ve dijital şemalarla öğrencimin dikkatini ekranda tutuyorum. İlk tanışma dersimizi tamamen <strong>ücretsiz</strong> yapalım; verimi gözlerinizle görün, kararı sonra verin."
+</div>
+<button onclick="toggleFaq(2)" class="w-full text-left bg-slate-900/50 hover:bg-slate-900 border border-slate-800 p-3 rounded-xl transition-all flex items-center justify-between text-xs">
+<span class="font-semibold text-slate-200">"Haftalık süreç nasıl işleyecek?"</span>
+<i id="faq-icon-2" class="fa-solid fa-chevron-down text-slate-400"></i>
+</button>
+<div id="faq-ans-2" class="hidden bg-slate-950/80 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 leading-relaxed">
+"Her ders sonunda öğrencimize haftalık ödevlendirme yapıp sıkı takibe alıyorum. Her haftanın son günü ise öğrencimizin durumunu ve gelişimini gösteren <strong>Haftalık Veli Raporu</strong>'nu size iletiyorum."
+</div>
+<button onclick="toggleFaq(3)" class="w-full text-left bg-slate-900/50 hover:bg-slate-900 border border-slate-800 p-3 rounded-xl transition-all flex items-center justify-between text-xs">
+<span class="font-semibold text-slate-200">"Ders saati ücretiniz nedir?"</span>
+<i id="faq-icon-3" class="fa-solid fa-chevron-down text-slate-400"></i>
+</button>
+<div id="faq-ans-3" class="hidden bg-slate-950/80 p-3 rounded-xl border border-slate-800 text-xs text-slate-300 leading-relaxed">
+"Saatlik ücretim X TL'dir. Ancak bu ücrete sadece ders saati değil; ders dışı ödev takip koçluğu ve veli raporlama süreçleri de dahildir. Yani çocuğunuz için komple bir Türkçe eğitim koçluğu alıyorsunuz."
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 space-y-8">
+<div class="flex flex-wrap gap-2 p-1.5 bg-slate-950/60 backdrop-blur border border-slate-800 rounded-2xl">
+<button onclick="switchTab('analytics')" id="tab-btn-analytics" class="flex-1 min-w-[150px] flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-blue-500/15">
+<i class="fa-solid fa-chart-line"></i> Metrik Takip & Öneri
+</button>
+<button onclick="switchTab('texts')" id="tab-btn-texts" class="flex-1 min-w-[150px] flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all text-slate-400 hover:text-white hover:bg-slate-900/50">
+<i class="fa-solid fa-copy"></i> İlan Kopyala-Yapıştır
+</button>
+<button onclick="switchTab('doping')" id="tab-btn-doping" class="flex-1 min-w-[150px] flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all text-slate-400 hover:text-white hover:bg-slate-900/50">
+<i class="fa-solid fa-bolt"></i> Doping & Görsel Matrisi
+</button>
+</div>
+<div id="panel-analytics" class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+<div class="glass-panel rounded-3xl p-6 border border-slate-800 md:col-span-2 space-y-4">
+<h3 class="font-extrabold text-sm text-cyan-400 uppercase tracking-wider flex items-center gap-2">
+<i class="fa-solid fa-square-plus"></i> Bugünün İlan Verileri
+</h3>
+<form id="analytics-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
 <div>
-<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Tarih</label>
-<input type="date" id="input-date" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 font-medium text-sm">
+<label class="block text-[10px] font-extrabold text-slate-500 uppercase tracking-widest mb-1.5">Tarih</label>
+<input type="date" id="data-date" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-cyan-500 font-semibold text-sm transition-colors">
 </div>
 <div class="grid grid-cols-2 gap-3">
 <div>
-<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Görüntülenme</label>
-<input type="number" id="input-views" min="0" required placeholder="Örn: 45" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 font-semibold text-sm">
+<label class="block text-[10px] font-extrabold text-slate-500 uppercase tracking-widest mb-1.5">Görüntülenme</label>
+<input type="number" id="data-views" min="0" required placeholder="Görüntüleme" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-cyan-500 font-bold text-sm transition-colors">
 </div>
 <div>
-<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Mesaj / Arama</label>
-<input type="number" id="input-messages" min="0" required placeholder="Örn: 2" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 font-semibold text-sm">
+<label class="block text-[10px] font-extrabold text-slate-500 uppercase tracking-widest mb-1.5">Mesaj / Arama</label>
+<input type="number" id="data-messages" min="0" required placeholder="Mesaj Sayısı" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-cyan-500 font-bold text-sm transition-colors">
 </div>
 </div>
-<button type="submit" class="w-full bg-slate-900 text-white hover:bg-slate-800 transition-colors font-bold py-3 px-4 rounded-xl text-sm shadow-sm flex items-center justify-center gap-2">
-<i class="fa-solid fa-floppy-disk"></i> Veriyi Kaydet
+<button type="submit" class="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white font-bold py-3 px-4 rounded-xl text-sm transition-all hover:opacity-95 shadow-md shadow-purple-500/10 flex items-center justify-center gap-2">
+<i class="fa-solid fa-arrow-down-long-solid"></i> Veriyi Kaydet ve Analiz Et
 </button>
 </form>
 </div>
-<div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm lg:col-span-2 flex flex-col justify-between">
+<div class="glass-panel rounded-3xl p-6 border border-slate-800 md:col-span-3 flex flex-col justify-between">
 <div>
-<div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
-<h3 class="font-bold text-lg text-slate-900 flex items-center gap-2">
-<i class="fa-solid fa-brain text-amber-500"></i> Akıllı Algoritma Tavsiyesi
+<div class="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-4">
+<h3 class="font-extrabold text-sm text-purple-400 uppercase tracking-wider flex items-center gap-2">
+<i class="fa-solid fa-microchip animate-pulse"></i> Karar Destek Algoritması
 </h3>
-<span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1">
-<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Durum Analiz Edildi
+<span class="bg-slate-900 border border-slate-800 text-slate-400 text-[10px] font-bold px-2 py-1 rounded-md">
+v2.5 Canlı
 </span>
 </div>
-<div id="recommendation-box" class="space-y-3">
+<div id="ai-suggestion" class="space-y-3">
 </div>
 </div>
 </div>
 </div>
-<div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-<div class="flex items-center justify-between mb-4">
-<h3 class="font-bold text-lg text-slate-900 flex items-center gap-2">
-<i class="fa-solid fa-clock-rotate-left text-amber-500"></i> Günlük Takip Verilerin
+<div class="glass-panel rounded-3xl p-6 border border-slate-800 shadow-xl">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-extrabold text-sm text-pink-400 uppercase tracking-wider flex items-center gap-2">
+<i class="fa-solid fa-database"></i> Günlük İlan Performans Günlüğü
 </h3>
-<button onclick="clearAllData()" class="text-xs text-rose-500 hover:text-rose-700 hover:underline font-semibold flex items-center gap-1">
-<i class="fa-solid fa-trash-can"></i> Tümünü Sıfırla
+<button onclick="clearAllStoredData()" class="text-xs text-rose-500 hover:text-rose-400 font-semibold flex items-center gap-1 transition-colors">
+<i class="fa-solid fa-trash-arrow-up"></i> Günlüğü Sıfırla
 </button>
 </div>
 <div class="overflow-x-auto">
-<table class="w-full text-left text-sm">
+<table class="w-full text-left text-xs">
 <thead>
-<tr class="border-b border-slate-100 text-slate-400 font-bold">
+<tr class="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
 <th class="py-3 px-4">Tarih</th>
-<th class="py-3 px-4">Yayındaki Gün Sayısı</th>
+<th class="py-3 px-4">Yayındaki Gün</th>
 <th class="py-3 px-4">Görüntülenme</th>
 <th class="py-3 px-4">Mesaj / Arama</th>
-<th class="py-3 px-4">Dönüşüm Oranı</th>
-<th class="py-3 px-4 text-right">Eylem</th>
+<th class="py-3 px-4">Dönüşüm Seviyesi</th>
+<th class="py-3 px-4 text-right">İşlem</th>
 </tr>
 </thead>
-<tbody id="metrics-table-body" class="divide-y divide-slate-50 font-medium">
+<tbody id="records-table-body" class="divide-y divide-slate-900 font-medium">
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div id="tab-copy-text" class="space-y-6 hidden">
-<div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-6">
+<div id="panel-texts" class="space-y-6 hidden">
+<div class="glass-panel rounded-3xl p-6 border border-slate-800 space-y-6">
 <div>
-<h2 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-1">
-<i class="fa-solid fa-pen-to-square text-amber-500"></i> Hazır İlan Metinleri
+<h2 class="text-lg font-bold text-slate-100 flex items-center gap-2 mb-1">
+<i class="fa-solid fa-file-invoice text-cyan-400"></i> Hazır İlan Şablonu Deposun
 </h2>
-<p class="text-xs text-slate-500">Buradaki metinler Sahibinden kurallarına ve 57 karakter başlık limitine tam uyumludur.</p>
+<p class="text-xs text-slate-400">En etkili LGS Türkçe özel ders ilan metnini tek tıklamayla panoya kopyala.</p>
 </div>
-<div class="space-y-4">
-<h3 class="font-bold text-sm text-slate-400 uppercase tracking-wider">57 Karakter Limitli Başlık Alternatifleri</h3>
+<div class="space-y-3">
+<h3 class="font-extrabold text-[10px] text-slate-500 uppercase tracking-widest">Sahibinden Uyumlu Başlık (Max 57 Karakter)</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<div class="bg-slate-50 rounded-xl p-4 border border-slate-100 flex flex-col justify-between gap-3">
+<div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 flex flex-col justify-between gap-3">
 <div>
-<p class="font-bold text-slate-900 text-sm" id="title-1">LGS-YKS Türkçe Özel Ders | Net Arttıran Takip Sistemi</p>
-<span class="text-xs font-semibold text-emerald-600 mt-1 block">53 Karakter (Limit Altı <i class="fa-solid fa-check"></i>)</span>
+<p class="font-extrabold text-slate-200 text-xs" id="shb-title-1">LGS-YKS Türkçe Özel Ders | Net Arttıran Takip Sistemi</p>
+<span class="text-[10px] font-bold text-emerald-500 mt-1 block"><i class="fa-solid fa-check"></i> 53 Karakter (Kabul Edildi)</span>
 </div>
-<button onclick="copyToClipboard('title-1')" class="self-end bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors">
+<button onclick="copyToClipboardText('shb-title-1')" class="self-end bg-slate-900 hover:bg-slate-800 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all border border-slate-800">
 <i class="fa-solid fa-copy"></i> Kopyala
 </button>
 </div>
-<div class="bg-slate-50 rounded-xl p-4 border border-slate-100 flex flex-col justify-between gap-3">
+<div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 flex flex-col justify-between gap-3">
 <div>
-<p class="font-bold text-slate-900 text-sm" id="title-2">Online Türkçe Dersi | Yeni Nesil Paragraf & Net Artışı</p>
-<span class="text-xs font-semibold text-emerald-600 mt-1 block">54 Karakter (Limit Altı <i class="fa-solid fa-check"></i>)</span>
+<p class="font-extrabold text-slate-200 text-xs" id="shb-title-2">Online Türkçe Dersi | Yeni Nesil Paragraf & Net Artışı</p>
+<span class="text-[10px] font-bold text-emerald-500 mt-1 block"><i class="fa-solid fa-check"></i> 54 Karakter (Kabul Edildi)</span>
 </div>
-<button onclick="copyToClipboard('title-2')" class="self-end bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors">
+<button onclick="copyToClipboardText('shb-title-2')" class="self-end bg-slate-900 hover:bg-slate-800 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all border border-slate-800">
 <i class="fa-solid fa-copy"></i> Kopyala
 </button>
 </div>
@@ -162,12 +284,12 @@ Doping Karar Matrisi
 </div>
 <div class="space-y-3">
 <div class="flex items-center justify-between">
-<h3 class="font-bold text-sm text-slate-400 uppercase tracking-wider">İlan Açıklaması (Gazi Üni. Son Sınıf İmzalı)</h3>
-<button onclick="copyToClipboard('desc-text')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-1.5 transition-colors">
-<i class="fa-solid fa-copy"></i> Tümünü Kopyala
+<h3 class="font-extrabold text-[10px] text-slate-500 uppercase tracking-widest">Görsel Uyumlu İlan Açıklaması</h3>
+<button onclick="copyToClipboardText('shb-desc-text')" class="bg-gradient-to-r from-cyan-500 to-purple-500 hover:opacity-95 text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-1.5 transition-all shadow-md shadow-purple-500/10">
+<i class="fa-solid fa-copy"></i> Açıklamayı Kopyala
 </button>
 </div>
-<div class="bg-slate-900 text-slate-100 p-6 rounded-2xl text-sm leading-relaxed max-h-96 overflow-y-auto font-mono" id="desc-text">Çocuğunuzun Türkçe netleri okul başarısını ve merkezi sınavlardaki (LGS) sıralamasını doğrudan etkiler. Günümüz sınav sisteminde sadece bilgi değil, "okuduğunu anlama, yorumlama ve yeni nesil paragraf sorularını hızlı çözme" becerisi ölçülmektedir.
+<div class="bg-slate-950/90 text-slate-300 p-5 rounded-2xl text-xs leading-relaxed max-h-80 overflow-y-auto font-mono border border-slate-900" id="shb-desc-text">Çocuğunuzun Türkçe netleri okul başarısını ve merkezi sınavlardaki (LGS) sıralamasını doğrudan etkiler. Günümüz sınav sisteminde sadece bilgi değil, "okuduğunu anlama, yorumlama ve yeni nesil paragraf sorularını hızlı çözme" becerisi ölçülmektedir.
 Çocuğunuzun derslerde geri kalmasından, kitap okumayı sevmemesinden ya da uzun paragraf sorularında pes etmesinden endişeleniyorsanız, doğru yerdesiniz. Ben öğrencimi sadece sınavlara hazırlamıyor; ona sistemli çalışma disiplini aşılıyor ve dersi sevdirecek bir yol haritası sunuyorum.
 🎯 DERSLERİMDE NASIL BİR SİSTEM UYGULUYORUM?
 Ücretsiz Ön Görüşme ve Seviye Tespiti: Derse başlamadan önce öğrencimin eksiklerini belirliyor, ona özel bir müfredat hazırlıyorum.
@@ -182,7 +304,7 @@ Okuma Anlama & Paragraf Kampı: Okuduğunu hızlı anlama ve yorumlama becerisi 
 ⚠️ BAŞARIMIZI ŞANSA BIRAKMIYORUZ:
 Eğitimin temelinde karşılıklı güven ve iletişim yer alır. Öğrencinin öğretmenini sevmesi, başarının yarısıdır. Bu yüzden derslerimize başlamadan önce velimiz ve öğrencimizle online bir tanışma seansı gerçekleştiriyoruz.
 Detaylı bilgi almak, ders programını planlamak ve ücretsiz ön görüşme randevusu oluşturmak için mesaj atabilirsiniz.
-(Derslerimiz Zoom/Google Meet üzerinden online olarak, öğrencinin en verimli olduğu saat dilimlerine göre esnek şekilde planmanmaktadır.)
+(Derslerimiz Zoom/Google Meet üzerinden online olarak, öğrencinin en verimli olduğu saat dilimlerine göre esnek şekilde planmaktadır.)
 🎓 ÖĞRETMEN HAKKINDA / KİMDEN DERS ALACAKSINIZ?
 📚 Gazi Üniversitesi - Türkçe Öğretmenliği 4. Sınıf (Son Sınıf) Öğrencisiyim. Türkiye'nin öğretmen yetiştirme konusundaki en köklü ve prestijli eğitim fakültelerinden birinde, en güncel pedagojik yöntemleri ve eğitim bilimlerini teorik/pratik olarak alarak mezuniyet aşamasına gelmiş bir öğretmen adayıyım.
 ✨ Genç ve Dinamik Bir Eğitmenle Çalışmanın Avantajı:
@@ -192,212 +314,204 @@ Kuvvetli İletişim ve Akran Dili: Öğrencimle aramızdaki yaş farkının az o
 </div>
 </div>
 </div>
-<div id="tab-images" class="space-y-6 hidden">
-<div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-6">
+<div id="panel-doping" class="space-y-6 hidden">
+<div class="glass-panel rounded-3xl p-6 border border-slate-800 space-y-6">
 <div>
-<h2 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-1">
-<i class="fa-solid fa-images text-amber-500"></i> Görsel Dizilim ve Algoritma Mühendisliği
+<h2 class="text-lg font-bold text-slate-100 flex items-center gap-2 mb-1">
+<i class="fa-solid fa-eye text-pink-400"></i> Görsel Yerleşim & Doping Mühendisliği
 </h2>
-<p class="text-xs text-slate-500">Veliler ilan fotoğraflarını kaydırırken güven oluşturmak için görselleri bu sıralamayla yüklemelisin.</p>
+<p class="text-xs text-slate-400">İlanınızın tıklanma oranını %300 artıracak en ideal yükleme sıralaması ve bütçe planlaması:</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-slate-50">
-<div class="bg-amber-500 text-slate-950 font-bold px-4 py-2 text-xs flex items-center justify-between">
-<span>1. GÖRSEL (KAPAK RESMİ)</span>
-<span class="bg-slate-950 text-amber-400 px-2 py-0.5 rounded text-[10px]">Tıklama Canavarı</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-slate-950 border border-slate-850 p-4 rounded-2xl space-y-2">
+<span class="bg-amber-500/10 text-amber-400 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">1. GÖRSEL (KAPAK)</span>
+<h4 class="font-bold text-slate-200 text-xs">İnteraktif Şema Görseli</h4>
+<p class="text-[11px] text-slate-400">Arka planı açık, Türkçe dünyasını tutan avatarınızın ve daire etrafındaki "LGS Net Artışı", "Soru Analizi" baloncuklarının olduğu ana kapak resmi. Tıklama çeker!</p>
 </div>
-<div class="p-6 flex flex-col items-center justify-center flex-1 text-center space-y-3">
-<div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-2xl">
-<i class="fa-solid fa-circle-nodes"></i>
+<div class="bg-slate-950 border border-slate-850 p-4 rounded-2xl space-y-2">
+<span class="bg-blue-500/10 text-blue-400 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">2. GÖRSEL (REFERANS)</span>
+<h4 class="font-bold text-slate-200 text-xs">Superprof Ahmet Mesrur Profili</h4>
+<p class="text-[11px] text-slate-400">Onay rozetli, yeşil tikli profil görüntünüz. Velinin "bu eğitmen onaylı ve profesyonel biri" diyerek şüphelerini yok ettiği ilk köprüdür.</p>
 </div>
-<h4 class="font-bold text-slate-950 text-sm">İnteraktif Şemalı Türkçe Resmi</h4>
-<p class="text-xs text-slate-500">Arama sonuçlarında velinin gözüne ilk çarpan görsel budur. Yuvarlak şema, veliye profesyonel ve düzenli bir eğitim sunulacağını anlatır.</p>
-</div>
-</div>
-<div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-slate-50">
-<div class="bg-slate-900 text-white font-bold px-4 py-2 text-xs flex items-center justify-between">
-<span>2. GÖRSEL</span>
-<span class="bg-amber-500 text-slate-950 px-2 py-0.5 rounded text-[10px]">Onaylanmış Kimlik</span>
-</div>
-<div class="p-6 flex flex-col items-center justify-center flex-1 text-center space-y-3">
-<div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl">
-<i class="fa-solid fa-id-card"></i>
-</div>
-<h4 class="font-bold text-slate-950 text-sm">Superprof Ahmet Mesrur Profili</h4>
-<p class="text-xs text-slate-500">Veliler ilk resmi geçince bu resmi görür. Superprof logosu ve yeşil onay tiki, sizin "onaylı ve güvenilir" bir öğretmen olduğunuzu kanıtlar.</p>
+<div class="bg-slate-950 border border-slate-850 p-4 rounded-2xl space-y-2">
+<span class="bg-purple-500/10 text-purple-400 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">3. GÖRSEL (SOSYAL KANIT)</span>
+<h4 class="font-bold text-slate-200 text-xs">Süperprof Öneri / Tavsiye Bloğu</h4>
+<p class="text-[11px] text-slate-400">Öğrencilerin sizi sevdiğini, ciddiyetinizi ve kalitenizi onaylayan o muhteşem mor kutulu tavsiye ekran görüntüsü. Satışı bitiren son vuruştur.</p>
 </div>
 </div>
-<div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-slate-50">
-<div class="bg-slate-900 text-white font-bold px-4 py-2 text-xs flex items-center justify-between">
-<span>3. GÖRSEL</span>
-<span class="bg-amber-500 text-slate-950 px-2 py-0.5 rounded text-[10px]">Sosyal Kanıt</span>
-</div>
-<div class="p-6 flex flex-col items-center justify-center flex-1 text-center space-y-3">
-<div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl">
-<i class="fa-solid fa-comment-dots"></i>
-</div>
-<h4 class="font-bold text-slate-950 text-sm">Superprof Referans Yazısı</h4>
-<p class="text-xs text-slate-500">Veli bu resme geldiğinde "Öğrencileri tarafından sevilen, ciddi ve güvenli bir seçim" yazan mor referans kutusunu okur ve ikna süreci tamamlanır.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="tab-doping-guide" class="space-y-6 hidden">
-<div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-6">
+<div class="space-y-3 pt-4 border-t border-slate-800">
+<h3 class="font-extrabold text-[10px] text-slate-500 uppercase tracking-widest">Sahibinden Bütçe Koruma & Doping Kılavuzu</h3>
+<div class="space-y-2 text-xs">
+<div class="bg-emerald-950/20 border border-emerald-900/50 p-3 rounded-xl flex justify-between items-center gap-4">
 <div>
-<h2 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-1">
-<i class="fa-solid fa-bolt text-amber-500"></i> Sahibinden Doping Karar Matrisi
-</h2>
-<p class="text-xs text-slate-500">Paranı sokağa atmamak için hangi dopingi ne zaman seçeceğini iyi bilmelisin.</p>
+<h4 class="font-bold text-emerald-400">Kalın Yazı & Renkli Çerçeve (65 TL - Tek Seferlik)</h4>
+<p class="text-[11px] text-slate-400">İlan süresince (30 gün) kapak görselinizin etrafına renkli çerçeve ekler ve başlığı kalınlaştırır. En kârlı dopingdir.</p>
 </div>
-<div class="space-y-4">
-<div class="flex flex-col md:flex-row items-start md:items-center justify-between p-4 rounded-xl border border-emerald-100 bg-emerald-50/50 gap-4">
-<div class="space-y-1">
-<span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Şiddetle Önerilen (En F/P)</span>
-<h4 class="font-bold text-slate-900 text-sm">Kalın Yazı & Renkli Çerçeve (65 TL)</h4>
-<p class="text-xs text-slate-600">Tek seferlik ödenir, ilan süresince (30 gün) geçerlidir. Görselini öne çıkararak velilerin listeyi kaydırırken doğrudan senin ilanda durmasını sağlar.</p>
+<span class="bg-emerald-500 text-slate-950 font-black text-[10px] px-2.5 py-1 rounded">ŞİDDETLE TAVSİYE</span>
 </div>
-<span class="bg-emerald-600 text-white font-bold text-xs px-3 py-1.5 rounded-lg shrink-0">Bütçe Dostu</span>
+<div class="bg-amber-950/20 border border-amber-900/50 p-3 rounded-xl flex justify-between items-center gap-4">
+<div>
+<h4 class="font-bold text-amber-400">Üst Sıradayım (279 TL - 1 Haftalık)</h4>
+<p class="text-[11px] text-slate-400">İlanı aramalarda en tepeye çıkartır ancak sadece 1 hafta sürer. İlk günlerde almayın, ilan yavaşlarsa denenebilir.</p>
 </div>
-<div class="flex flex-col md:flex-row items-start md:items-center justify-between p-4 rounded-xl border border-amber-100 bg-amber-50/50 gap-4">
-<div class="space-y-1">
-<span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Bütçen Varsa Denenebilir</span>
-<h4 class="font-bold text-slate-900 text-sm">Üst Sıradayım (279 TL / Hafta)</h4>
-<p class="text-xs text-slate-600">Sadece 1 hafta sürer. Arama sonuçlarında en üstte gösterir. Ancak bütçe limitin varsa ilk günlerde hemen kullanma, önce ücretsiz yayılmayı bekle.</p>
+<span class="bg-amber-500 text-slate-950 font-black text-[10px] px-2.5 py-1 rounded">SEÇİCİ KULLANIM</span>
 </div>
-<span class="bg-amber-600 text-white font-bold text-xs px-3 py-1.5 rounded-lg shrink-0">Hızlı Sonuç</span>
+<div class="bg-rose-950/20 border border-rose-900/50 p-3 rounded-xl flex justify-between items-center gap-4">
+<div>
+<h4 class="font-bold text-rose-400">Anasayfa Vitrini (2.849 TL - 1 Haftalık)</h4>
+<p class="text-[11px] text-slate-400">Gereksizdir ve para tuzağıdır. Veliler ana sayfada gezmez, arama çubuğunu kullanır. Kesinlikle almayın.</p>
 </div>
-<div class="flex flex-col md:flex-row items-start md:items-center justify-between p-4 rounded-xl border border-rose-100 bg-rose-50/50 gap-4">
-<div class="space-y-1">
-<span class="bg-rose-100 text-rose-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">KESİNLİKLE ALMA!</span>
-<h4 class="font-bold text-slate-900 text-sm">Anasayfa Vitrini (2.849 TL / Hafta)</h4>
-<p class="text-xs text-slate-600">Tamamen para tuzağıdır. Özel ders arayan veliler ana sayfadaki vitrine bakmaz; doğrudan arama motoruna "Türkçe Özel Ders" yazar. Buradaki bütçe boşa gider.</p>
-</div>
-<span class="bg-rose-600 text-white font-bold text-xs px-3 py-1.5 rounded-lg shrink-0">Para Kaybı</span>
+<span class="bg-rose-500 text-white font-black text-[10px] px-2.5 py-1 rounded">ASLA ALMA</span>
 </div>
 </div>
 </div>
 </div>
-</main>
+</div>
+</div>
+</div>
 </div>
 <script>
-// Uygulama Başlangıç Değerleri (26 Mayıs 2026'ya göre ayarlandı)
-const TODAY_STR = '2026-05-26';
-document.getElementById('input-date').value = TODAY_STR;
-// Sayfa Değiştirme
-function switchTab(tabName) {
-const tabs = ['dashboard', 'copy-text', 'images', 'doping-guide'];
-tabs.forEach(t => {
-const el = document.getElementById('tab-' + t);
-const btn = document.getElementById('btn-' + t);
-if (t === tabName) {
+// Bugünün Tarih Sabiti (2026-05-26)
+const TODAY_DATE = '2026-05-26';
+document.getElementById('data-date').value = TODAY_DATE;
+// Sekme Değiştirici
+function switchTab(tabId) {
+const sections = ['analytics', 'texts', 'doping'];
+sections.forEach(sec => {
+const el = document.getElementById('panel-' + sec);
+const btn = document.getElementById('tab-btn-' + sec);
+if (sec === tabId) {
 el.classList.remove('hidden');
-btn.className = "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors bg-amber-500 text-slate-950";
+btn.className = "flex-1 min-w-[150px] flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-blue-500/15";
 } else {
 el.classList.add('hidden');
-btn.className = "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:bg-slate-800 hover:text-white";
+btn.className = "flex-1 min-w-[150px] flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all text-slate-400 hover:text-white hover:bg-slate-900/50";
 }
 });
 }
-// Kopyalama Fonksiyonu
-function copyToClipboard(elementId) {
-const el = document.getElementById(elementId);
-const textToCopy = el.innerText |
-| el.textContent;
-navigator.clipboard.writeText(textToCopy).then(() => {
-alert("Metin başarıyla panoya kopyalandı!");
+// Veli Rehberi Toggle SSS
+function toggleFaq(num) {
+const ans = document.getElementById('faq-ans-' + num);
+const icon = document.getElementById('faq-icon-' + num);
+if (ans.classList.contains('hidden')) {
+ans.classList.remove('hidden');
+icon.className = "fa-solid fa-chevron-up text-cyan-400";
+} else {
+ans.classList.add('hidden');
+icon.className = "fa-solid fa-chevron-down text-slate-400";
+}
+}
+// Kopyalama Eylemi
+function copyToClipboardText(elId) {
+const element = document.getElementById(elId);
+const text = element.innerText |
+| element.textContent;
+navigator.clipboard.writeText(text).then(() => {
+alert("Başarıyla kopyalandı! Sahibinden ilanınıza yapıştırabilirsiniz.");
 }).catch(err => {
 console.error("Kopyalama başarısız: ", err);
 });
 }
-// Veri Yönetimi (LocalStorage)
-let metricsData = JSON.parse(localStorage.getItem('sahibinden_metrics')) ||;
-function renderData() {
-const tbody = document.getElementById('metrics-table-body');
+// Yerel Veri Yönetimi
+let dailyRecords = JSON.parse(localStorage.getItem('mesrur_analytics_data')) ||;
+function drawRecordsTable() {
+const tbody = document.getElementById('records-table-body');
 tbody.innerHTML = '';
-// Tarihe göre sırala
-metricsData.sort((a, b) => new Date(a.date) - new Date(b.date));
-metricsData.forEach((entry, index) => {
-const dayNumber = index + 1;
-const views = parseInt(entry.views);
-const messages = parseInt(entry.messages);
-const conversion = views > 0? ((messages / views) * 100).toFixed(1) + '%' : '0%';
+// Tarih sırasına göre diz
+dailyRecords.sort((a, b) => new Date(a.date) - new Date(b.date));
+dailyRecords.forEach((item, index) => {
+const dayCount = index + 1;
+const viewsNum = parseInt(item.views);
+const msgNum = parseInt(item.messages);
+const conversionRatio = viewsNum > 0? ((msgNum / viewsNum) * 100).toFixed(1) : 0;
+let badgeClass = "bg-slate-900 text-slate-400";
+let badgeLabel = "Veri Bekleniyor";
+if (viewsNum > 0) {
+if (conversionRatio == 0) {
+badgeClass = "bg-rose-500/10 text-rose-400 border border-rose-500/30";
+badgeLabel = "Geliştirilmeli";
+} else if (conversionRatio > 0 && conversionRatio <= 5) {
+badgeClass = "bg-amber-500/10 text-amber-400 border border-amber-500/30";
+badgeLabel = "Umut Verici";
+} else if (conversionRatio > 5 && conversionRatio <= 15) {
+badgeClass = "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.1)]";
+badgeLabel = "Harika";
+} else {
+badgeClass = "bg-purple-500/10 text-purple-400 border border-purple-500/30 animate-pulse shadow-[0_0_15px_rgba(168,85,247,0.2)]";
+badgeLabel = "Efsanevi!";
+}
+}
 const tr = document.createElement('tr');
-tr.className = "border-b border-slate-100 hover:bg-slate-50 transition-colors";
-tr.innerHTML = <td class="py-3 px-4 text-slate-900">${formatDate(entry.date)}</td> <td class="py-3 px-4 text-slate-500">${dayNumber}. Gün</td> <td class="py-3 px-4 text-slate-900 font-semibold">${views}</td> <td class="py-3 px-4 text-amber-600 font-semibold">${messages}</td> <td class="py-3 px-4"><span class="bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md text-xs font-semibold">${conversion}</span></td> <td class="py-3 px-4 text-right"> <button onclick="deleteEntry(${index})" class="text-rose-500 hover:text-rose-700 transition-colors"> <i class="fa-solid fa-trash"></i> </button> </td>;
+tr.className = "border-b border-slate-900/60 hover:bg-slate-900/20 transition-all";
+tr.innerHTML = <td class="py-3 px-4 text-slate-100 font-bold">${formatRecordDate(item.date)}</td> <td class="py-3 px-4 text-slate-400">${dayCount}. Gün</td> <td class="py-3 px-4 text-cyan-400 font-extrabold">${viewsNum}</td> <td class="py-3 px-4 text-pink-500 font-extrabold">${msgNum}</td> <td class="py-3 px-4"> <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider ${badgeClass}"> ${badgeLabel} (${conversionRatio}%) </span> </td> <td class="py-3 px-4 text-right"> <button onclick="deleteRecordItem(${index})" class="text-rose-500 hover:text-rose-400 transition-colors"> <i class="fa-solid fa-trash-can"></i> </button> </td>;
 tbody.appendChild(tr);
 });
-generateRecommendation();
+updateDecisionEngine();
 }
-function formatDate(dateStr) {
-const d = new Date(dateStr);
-return d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+function formatRecordDate(dateStr) {
+const dateObj = new Date(dateStr);
+return dateObj.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
 }
-function saveEntry(e) {
-e.preventDefault();
-const date = document.getElementById('input-date').value;
-const views = document.getElementById('input-views').value;
-const messages = document.getElementById('input-messages').value;
-// Aynı tarihte kayıt varsa güncelle, yoksa ekle
-const existingIndex = metricsData.findIndex(item => item.date === date);
-if (existingIndex > -1) {
-metricsData[existingIndex] = { date, views, messages };
+function handleFormSubmit(event) {
+event.preventDefault();
+const date = document.getElementById('data-date').value;
+const views = document.getElementById('data-views').value;
+const messages = document.getElementById('data-messages').value;
+const duplicateIndex = dailyRecords.findIndex(r => r.date === date);
+if (duplicateIndex > -1) {
+dailyRecords[duplicateIndex] = { date, views, messages };
 } else {
-metricsData.push({ date, views, messages });
+dailyRecords.push({ date, views, messages });
 }
-localStorage.setItem('sahibinden_metrics', JSON.stringify(metricsData));
-renderData();
-document.getElementById('metrics-form').reset();
-document.getElementById('input-date').value = TODAY_STR;
+localStorage.setItem('mesrur_analytics_data', JSON.stringify(dailyRecords));
+drawRecordsTable();
+document.getElementById('analytics-form').reset();
+document.getElementById('data-date').value = TODAY_DATE;
 }
-function deleteEntry(index) {
-if (confirm("Bu güne ait veriyi silmek istediğinden emin misin?")) {
-metricsData.splice(index, 1);
-localStorage.setItem('sahibinden_metrics', JSON.stringify(metricsData));
-renderData();
-}
-}
-function clearAllData() {
-if (confirm("Tüm verileri tamamen sıfırlamak istiyor musun? Bu işlem geri alınamaz.")) {
-metricsData =;
-localStorage.removeItem('sahibinden_metrics');
-renderData();
+function deleteRecordItem(index) {
+if (confirm("Bu günü silmek istediğinize emin misiniz?")) {
+dailyRecords.splice(index, 1);
+localStorage.setItem('mesrur_analytics_data', JSON.stringify(dailyRecords));
+drawRecordsTable();
 }
 }
-// Öneri Algoritması
-function generateRecommendation() {
-const recBox = document.getElementById('recommendation-box');
-if (metricsData.length === 0) {
-recBox.innerHTML = <div class="p-4 bg-amber-50 border border-amber-100 rounded-xl text-slate-900 text-sm space-y-2"> <p class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-circle-info"></i> Henüz Veri Girilmedi!</p> <p>İlanını Sahibinden'e yükledikten sonra ilk günden başlayarak görüntülenme ve gelen mesaj sayılarını sol taraftaki forma girmeye başla. Algoritmamız verilerini inceleyerek sana nokta atışı tavsiyeler verecek.</p> </div>;
+function clearAllStoredData() {
+if (confirm("Tüm veri günlüğünü sıfırlamak istiyor musunuz? Bu işlem geri alınamaz.")) {
+dailyRecords =;
+localStorage.removeItem('mesrur_analytics_data');
+drawRecordsTable();
+}
+}
+// Yapay Zeka & Karar Destek Karar Ağacı
+function updateDecisionEngine() {
+const recBox = document.getElementById('ai-suggestion');
+if (dailyRecords.length === 0) {
+recBox.innerHTML = <div class="p-5 bg-slate-900/50 border border-slate-800 rounded-2xl text-slate-300 text-xs leading-relaxed space-y-3"> <p class="font-bold text-cyan-400 flex items-center gap-1.5 text-sm"><i class="fa-solid fa-circle-info"></i> Analizör Hazır!</p> <p>Lütfen Sahibinden ilanınızı yayınladıktan sonra ilk günden itibaren günlük görüntülenme ve gelen mesaj/arama verilerinizi sol panelden girin.</p> <p>Akıllı algoritma, verilerinizin gidişatına göre size bütçenizi koruyacak ve hızlıca öğrenci bağlamanızı sağlayacak yönlendirmeleri anında burada üretecektir.</p> </div>;
 return;
 }
-// En son girilen veriyi baz al
-const sortedData =.sort((a, b) => new Date(a.date) - new Date(b.date));
-const latest = sortedData;
-const totalDays = sortedData.length;
-const views = parseInt(latest.views);
-const messages = parseInt(latest.messages);
-let recTitle = "";
-let recType = "info"; // info, warning, success
-let recHTML = "";
-if (totalDays <= 2) {
-// İlk 2 gün tavsiyesi
-recHTML = <div class="p-4 bg-blue-50 border border-blue-100 rounded-xl text-slate-900 text-sm space-y-3"> <p class="font-bold text-blue-900 flex items-center gap-1.5"><i class="fa-solid fa-hourglass-start"></i> İlanınız Çok Yeni! (Bekle ve Gör)</p> <p>Şu an tamamen ücretsiz ilk 48 saatlik aşamadasınız. Sahibinden algoritması yeni ilanları listelerde geçici olarak yukarı taşır. Bu süre boyunca cebinizden <strong>asla para çıkmasın</strong>.</p> <div class="bg-white/80 p-3 rounded-lg border border-blue-200/50 text-xs text-blue-800 space-y-1"> <span class="font-bold block">Bugünkü Durumunuz:</span> <li>Görüntülenme: ${views} | Gelen İletişim: ${messages}</li> <p class="mt-1 font-semibold text-[11px]"><i class="fa-solid fa-lightbulb"></i> Öneri: Görüntülenme durumunu yarın da kontrol et.</p> </div> </div>;
+const sorted =.sort((a, b) => new Date(a.date) - new Date(b.date));
+const latestData = sorted[sorted.length - 1];
+const activeDays = sorted.length;
+const views = parseInt(latestData.views);
+const messages = parseInt(latestData.messages);
+let engineHTML = '';
+if (activeDays <= 2) {
+// Yayındaki İlk 2 Gün
+engineHTML = <div class="p-5 bg-indigo-950/20 border border-indigo-900/40 rounded-2xl text-xs space-y-3"> <p class="font-black text-indigo-400 flex items-center gap-1.5 text-sm uppercase tracking-wider"><i class="fa-solid fa-hourglass-start animate-spin"></i> İLK 48 SAAT (YENİ İLAN ETKİSİ)</p> <p class="text-slate-300 leading-relaxed">İlanınız henüz çok yeni. Sahibinden algoritması yeni ilanları geçici olarak listelerde zaten en üste çıkarır. Şu an için <strong>kesinlikle cebinizden para çıkmasın (sıfır doping)</strong>.</p> <div class="p-3 bg-slate-950/80 border border-indigo-900/50 rounded-xl space-y-1 text-[11px] text-indigo-300"> <strong>Mevcut Durum:</strong> ${activeDays}. günündesiniz. ${views} görüntülenmeye karşılık ${messages} mesaj/arama aldınız. Şimdilik sabırla bekleyip verileri gözlemlemeye devam edin. </div> </div>;
 } else if (views < 40 && messages === 0) {
-// Düşük Görüntülenme Durumu
-recHTML = <div class="p-4 bg-rose-50 border border-rose-100 rounded-xl text-slate-900 text-sm space-y-3"> <p class="font-bold text-rose-950 flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation"></i> Görüntülenme Çok Düşük!</p> <p>İlanınız ${totalDays} gündür yayında ama son görüntülenme sayınız <strong>(${views})</strong> yetersiz. Veliler ilanınızı listelerde göremiyor ya da diğer ilanlar dikkat çekiyor.</p> <div class="bg-rose-100/50 p-3 rounded-lg border border-rose-200 text-xs text-rose-900 space-y-2"> <span class="font-bold block text-rose-950">Aksiyon Planı:</span> <p><strong>1) Kalın Yazı & Renkli Çerçeve (65 TL):</strong> Bu dopingi almanın tam zamanı. O muazzam kapak görselini (şema) renkli çerçeveyle parlatacağız. Tek seferlik ödenir ve 30 gün geçerlidir.</p> <p><strong>2) İlan Başlığını Değiştir:</strong> Eğer "LGS-YKS Türkçe Özel Ders" başlığını seçmediysen, karakter sınırını aşmadan hemen bu başlığa geç.</p> </div> </div>;
+// Görünürlük Kötü, İletişim Yok
+engineHTML = <div class="p-5 bg-rose-950/20 border border-rose-900/40 rounded-2xl text-xs space-y-3"> <p class="font-black text-rose-400 flex items-center gap-1.5 text-sm uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation"></i> GÖRÜNÜRLÜK UYARISI: İLAN GERİDE KALDI!</p> <p class="text-slate-300 leading-relaxed">İlanınız ${activeDays} gündür yayında ancak günlük görüntülenme sayınız <strong>(${views})</strong> çok düşük. Veli ilanınıza ulaşamıyor.</p> <div class="space-y-2 pt-2 text-[11px]"> <p class="text-rose-300 font-bold"><i class="fa-solid fa-bolt"></i> Yapılması Gereken Net Aksiyon:</p> <p class="text-slate-300 leading-relaxed"><strong>1) "Kalın Yazı & Renkli Çerçeve" Dopingi (65 TL):</strong> Tek seferlik bu cüzi dopingi uygulayarak kapak görselinizin (yuvarlak interaktif şema) arama sonuçlarında parlamasını sağlayın. Tıklama oranınız hızla artacaktır.</p> <p class="text-slate-300 leading-relaxed"><strong>2) Başlığı Güncelleyin:</strong> İlan kopyalama sekmesindeki 57 karakter limitli LGS başlığını kullandığınızdan emin olun.</p> </div> </div>;
 } else if (views >= 40 && messages === 0) {
-// Görüntülenme iyi ama dönüşüm yok
-recHTML = <div class="p-4 bg-amber-50 border border-amber-100 rounded-xl text-slate-900 text-sm space-y-3"> <p class="font-bold text-amber-950 flex items-center gap-1.5"><i class="fa-solid fa-circle-question"></i> Veliler Tıklıyor Ama Aramıyor!</p> <p>Görüntülenme sayınız fena değil <strong>(${views})</strong>, yani ilanınız bulunuyor ancak veliler açıklamayı okuduktan sonra mesaj atmaya ikna olmuyor <strong>(${messages} mesaj)</strong>.</p> <div class="bg-white/90 p-3 rounded-lg border border-amber-200 text-xs text-amber-900 space-y-2"> <span class="font-bold block text-amber-950">Bunu Hemen Düzelt:</span> <p><strong>1) "İlk Ders Ücretsiz" Vurgusu:</strong> Açıklamanızda yer alan "Ücretsiz tanışma seansı" ifadesini en başa kalın harflerle çekin.</p> <p><strong>2) Görsel Kontrolü:</strong> Kapak görselinden hemen sonra gelen 2. ve 3. resimlerin Superprof profilindeki referanslar ve yeşil onay tiki olduğundan emin olun. Güven vermeniz şart.</p> </div> </div>;
+// Görünürlük İyi Ama Karar Kötü
+engineHTML = <div class="p-5 bg-amber-950/20 border border-amber-900/40 rounded-2xl text-xs space-y-3"> <p class="font-black text-amber-400 flex items-center gap-1.5 text-sm uppercase tracking-wider"><i class="fa-solid fa-clipboard-question"></i> DÖNÜŞÜM ENGELİ: VELİ İKNA OLMUYOR!</p> <p class="text-slate-300 leading-relaxed">Harika bir haber: İlanınız veliler tarafından bulunuyor ve tıklanıyor <strong>(Günlük ${views} Görüntülenme)</strong>. Ancak veliler açıklamayı okuduktan sonra mesaj atmadan çıkıyor <strong>(0 Mesaj/Arama)</strong>.</p> <div class="space-y-2 pt-2 text-[11px]"> <p class="text-amber-300 font-bold"><i class="fa-solid fa-wrench"></i> Açıklamayı Optimize Edin:</p> <p class="text-slate-300 leading-relaxed"><strong>1) Ücretsiz Ön Görüşmeyi Vurgulayın:</strong> "Ücretsiz tanışma seansı ve ön görüşme" ifadesini ilan açıklamanızda en tepeye kalın harflerle yazın.</p> <p class="text-slate-300 leading-relaxed"><strong>2) Görsel Sırasını Kontrol Edin:</strong> 2. ve 3. görsellerin Superprof yeşil onay tikli ve mor referanslı ekran görüntüsü olduğundan emin olun. Veli güven hissetmek istiyor.</p> </div> </div>;
 } else if (messages > 0) {
 // Başarılı Durum
-recHTML = <div class="p-4 bg-emerald-50 border border-emerald-100 rounded-xl text-slate-900 text-sm space-y-3"> <p class="font-bold text-emerald-950 flex items-center gap-1.5"><i class="fa-solid fa-trophy"></i> Tebrikler! Sistem Başarıyla Çalışıyor</p> <p>Bugün <strong>${messages}</strong> veli iletişimi yakaladınız. İlanınızın dönüşüm oranı oldukça sağlıklı.</p> <div class="bg-white/90 p-3 rounded-lg border border-emerald-200 text-xs text-emerald-900 space-y-2"> <span class="font-bold block text-emerald-950">Telefonda Satış Kapama İpuçları (Cebinizi Isıtacak Detaylar):</span> <p><strong>• "Online verimli olur mu?":</strong> "Kullandığım grafik tablet ve hazırladığım etkileşimli şemalar sayesinde çocuğun odağını bilgisayar başında tutuyorum. İlk dersimizi deneme olarak ücretsiz yapalım, verimi kendiniz görün" deyin.</p> <p><strong>• Haftalık Rapor Garantisi:</strong> Velilere her haftanın son günü öğrencimizin ilerleme durumunu raporlayacağınızı söyleyin. Bu, rakiplerinizde olmayan bir güçtür.</p> </div> </div>;
+engineHTML = <div class="p-5 bg-emerald-950/20 border border-emerald-900/40 rounded-2xl text-xs space-y-3"> <p class="font-black text-emerald-400 flex items-center gap-1.5 text-sm uppercase tracking-wider"><i class="fa-solid fa-circle-check animate-pulse"></i> SİSTEM KUSURSUZ ÇALIŞIYOR!</p> <p class="text-slate-300 leading-relaxed">Tebrikler Ahmet Öğretmenim! Bugün <strong>${messages} yeni veli iletişimi</strong> yakaladınız. İlanınızın dönüşüm oranı oldukça sağlıklı.</p> <div class="space-y-2 pt-2 text-[11px]"> <p class="text-emerald-300 font-bold"><i class="fa-solid fa-comments"></i> Telefonda Satış Kapama Taktikleri:</p> <p class="text-slate-300 leading-relaxed"><strong>• "Haftalık Veli Raporu" Kartını Oynayın:</strong> Velilere, diğer öğretmenlerin yapmadığı "düzenli her pazar günü öğrenci ilerleme raporu" sunacağınızı mutlaka belirtin.</p> <p class="text-slate-300 leading-relaxed"><strong>• Ücretsiz Deneme Teklif Edin:</strong> "İlk tanışma seansımız online olarak ücretsizdir, çocuğunuzla enerjimiz uyuşursa devam ederiz" diyerek velinin riskini sıfıra indirin.</p> </div> </div>;
 }
-recBox.innerHTML = recHTML;
+recBox.innerHTML = engineHTML;
 }
 // İlk Yükleme
-renderData();
+drawRecordsTable();
 </script>
 </body>
 </html>
